@@ -1,7 +1,6 @@
 # This file will include a class with instance methods.
 # That will be responsible to interact with our website
 # After we have some results, to apply filtrations.
-import collections
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
