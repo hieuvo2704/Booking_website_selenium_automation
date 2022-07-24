@@ -1,7 +1,7 @@
-import booking_web.constants as const
+import constants as const
 import os
 from selenium.webdriver.common.by import By
-from booking_web.booking_filtrations import BookingFiltration
+from booking_filtrations import BookingFiltration
 from selenium import webdriver
 
 
@@ -74,4 +74,17 @@ class Booking(webdriver.Chrome):
 
     def apply_filtrations(self):
         filtration = BookingFiltration(driver=self)
-        filtration.apply_start_rating(3, 4, 5)
+        try:
+            filtration.apply_start_rating(1, 3, 5)
+        except Exception as e:
+            if 'loading status' in str(e):
+                print('Errors in the "apply_start_rating" function\n---> "Error: cannot determine loading status"')
+            else:
+                print('Errors in the "apply_start_rating" function', e)
+        try:
+            filtration.sorting()
+        except Exception as e:
+            if 'Unable to locate element' in str(e):
+                print('Errors in the "sorting" function\n---> "No such element: Unable to locate element"')
+            else:
+                print('Errors in the "sorting" function', e)
