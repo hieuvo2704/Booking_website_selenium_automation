@@ -1,8 +1,7 @@
-from booking_web.booking import Booking
+from booking import Booking
 
 # inst = Booking()
 # inst.land_first_page()
-
 with Booking(teardown=False) as bot:
     bot.land_first_page()
     # bot.change_currency(currency='USD')
@@ -12,4 +11,5 @@ with Booking(teardown=False) as bot:
     bot.select_adult(3)
     bot.click_search()
     bot.apply_filtrations()
+
     print('Completed !')
