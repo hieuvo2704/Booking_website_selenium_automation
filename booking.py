@@ -80,11 +80,11 @@ class Booking(webdriver.Chrome):
             if 'loading status' in str(e):
                 print('Errors in the "apply_start_rating" function\n---> "Error: cannot determine loading status"')
             else:
-                print('Errors in the "apply_start_rating" function', e)
+                raise
         try:
             filtration.sorting()
         except Exception as e:
             if 'Unable to locate element' in str(e):
                 print('Errors in the "sorting" function\n---> "No such element: Unable to locate element"')
             else:
-                print('Errors in the "sorting" function', e)
+                raise
