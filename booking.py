@@ -75,16 +75,18 @@ class Booking(webdriver.Chrome):
     def apply_filtrations(self):
         filtration = BookingFiltration(driver=self)
         try:
-            filtration.apply_start_rating(1, 3, 5)
+            filtration.apply_start_rating(1, 3, 4)
         except Exception as e:
             if 'loading status' in str(e):
-                print('Errors in the "apply_start_rating" function\n---> "Error: cannot determine loading status"')
+                print('Errors in the "apply_start_rating" function\n'
+                      '---> "Error: cannot determine loading status"')
             else:
                 raise
         try:
             filtration.sorting()
         except Exception as e:
             if 'Unable to locate element' in str(e):
-                print('Errors in the "sorting" function\n---> "No such element: Unable to locate element"')
+                print('Errors in the "sorting" function\n'
+                      '---> "No such element: Unable to locate element"')
             else:
                 raise
